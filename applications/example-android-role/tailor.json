@@ -1,0 +1,14 @@
+{
+  "_why": "Worked example. Delete this folder once you have a real application. It exists so `node scripts/build.mjs applications/example-android-role` works the moment you clone the repo, and so you can see what a tailor.json looks like against the example resume.",
+  "targetRole": "Android Developer",
+  "summaryVariant": "fintech",
+  "headlineOverride": "Android Developer | Kotlin · Jetpack Compose · Offline-first",
+  "skillOrder": ["mobile", "arch", "api", "storage", "delivery"],
+  "skillItemOrder": { "mobile": ["Kotlin", "Jetpack Compose", "Android SDK"] },
+  "bulletOrder": {
+    "acme": ["acme-field", "acme-offline", "acme-release", "acme-api"],
+    "firstco": ["firstco-refactor", "firstco-secdata", "firstco-agile"]
+  },
+  "dropBullets": [],
+  "projectOrder": ["sideproject"]
+}

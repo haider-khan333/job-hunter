@@ -1,0 +1,146 @@
+{
+  "_note": "Verified public ATS job boards. Regenerate with: node scripts/discover.mjs",
+  "generated": "2026-09-17",
+  "companies": [
+    {
+      "slug": "stripe",
+      "provider": "greenhouse",
+      "jobCount": 659
+    },
+    {
+      "slug": "hellofresh",
+      "provider": "greenhouse",
+      "jobCount": 438
+    },
+    {
+      "slug": "okx",
+      "provider": "greenhouse",
+      "jobCount": 339
+    },
+    {
+      "slug": "binance",
+      "provider": "lever",
+      "jobCount": 300
+    },
+    {
+      "slug": "deliveroo",
+      "provider": "ashby",
+      "jobCount": 225
+    },
+    {
+      "slug": "adyen",
+      "provider": "greenhouse",
+      "jobCount": 225
+    },
+    {
+      "slug": "lyft",
+      "provider": "greenhouse",
+      "jobCount": 180
+    },
+    {
+      "slug": "bybit",
+      "provider": "greenhouse",
+      "jobCount": 160
+    },
+    {
+      "slug": "gomotive",
+      "provider": "greenhouse",
+      "jobCount": 142
+    },
+    {
+      "slug": "tcs",
+      "provider": "greenhouse",
+      "jobCount": 96
+    },
+    {
+      "slug": "crypto",
+      "provider": "lever",
+      "jobCount": 59
+    },
+    {
+      "slug": "aldar",
+      "provider": "lever",
+      "jobCount": 48
+    },
+    {
+      "slug": "aldar",
+      "provider": "lever",
+      "jobCount": 48
+    },
+    {
+      "slug": "rain",
+      "provider": "ashby",
+      "jobCount": 45
+    },
+    {
+      "slug": "thoughtworks",
+      "provider": "greenhouse",
+      "jobCount": 42
+    },
+    {
+      "slug": "tamara",
+      "provider": "greenhouse",
+      "jobCount": 31
+    },
+    {
+      "slug": "unifonic",
+      "provider": "recruitee",
+      "jobCount": 30
+    },
+    {
+      "slug": "turing",
+      "provider": "greenhouse",
+      "jobCount": 22
+    },
+    {
+      "slug": "careem",
+      "provider": "greenhouse",
+      "jobCount": 21
+    },
+    {
+      "slug": "careem",
+      "provider": "greenhouse",
+      "jobCount": 21
+    },
+    {
+      "slug": "trolley",
+      "provider": "greenhouse",
+      "jobCount": 18
+    },
+    {
+      "slug": "shipa",
+      "provider": "workable",
+      "jobCount": 17
+    },
+    {
+      "slug": "andela",
+      "provider": "ashby",
+      "jobCount": 17
+    },
+    {
+      "slug": "wise",
+      "provider": "greenhouse",
+      "jobCount": 17
+    },
+    {
+      "slug": "ziina",
+      "provider": "ashby",
+      "jobCount": 14
+    },
+    {
+      "slug": "binance",
+      "provider": "greenhouse",
+      "jobCount": 9
+    },
+    {
+      "slug": "leantech",
+      "provider": "ashby",
+      "jobCount": 4
+    },
+    {
+      "slug": "accenture",
+      "provider": "recruitee",
+      "jobCount": 2
+    }
+  ]
+}

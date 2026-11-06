@@ -1,0 +1,105 @@
+{
+  "_note": "Fixtures for scripts/test-stack-veto.mjs. Each case is a short synthetic job description written to exercise one veto group, plus 'good' cases that must NEVER be vetoed. The originals were real postings pulled from a live queue; they were replaced with synthetic text so the test ships without anyone's search history in it. If you change config/search.config.mjs -> stackVeto.stacks, add a case here for the group you added.",
+
+  "_howTheRuleWorks": "A stack must appear at least `stackVeto.hits` times (default 3) before the posting is dropped. One passing mention never vetoes anything, because almost every backend advert name-drops something. These fixtures are written right at that boundary on purpose: the 'good' cases mention a foreign stack once or twice and must survive.",
+
+  "cases": [
+    {
+      "label": ".NET backend hidden behind a neutral title",
+      "shouldVeto": true,
+      "why": "A real posting titled 'Senior Backend Developer (L3)' at a payments company read like a direct hit. The body wanted a .NET developer. The title never said so.",
+      "desc": "Senior Backend Developer. You will build and maintain services in C# on .NET 8, using ASP.NET Core for our APIs and Entity Framework for data access. Experience with xUnit and NSubstitute for testing is expected, and some of our older surfaces are Blazor. Strong C# fundamentals are essential."
+    },
+    {
+      "label": "Oracle EBS dressed as software engineering",
+      "shouldVeto": true,
+      "why": "Titled 'Senior Software Engineer'. The whole job was Oracle E-Business Suite.",
+      "desc": "Senior Software Engineer for our Oracle EBS R12.2 landscape. You will develop RICE components, write PL/SQL packages, maintain Oracle Forms and Oracle Reports, and build statements in BI Publisher. Oracle Workflow customisation experience is required. Day to day is PL/SQL."
+    },
+    {
+      "label": "embedded firmware dressed as software engineering",
+      "shouldVeto": true,
+      "why": "Titled 'Senior GCS Software Engineer'. The body was UAV firmware and RTOS.",
+      "desc": "Software Engineer, ground control systems. You will write firmware for Cortex-M targets running FreeRTOS, integrate ADC interfacing for sensor payloads, and work to DO-178C where required. Prior embedded development on bare-metal microcontrollers is essential. Experience with RTOS scheduling is a must."
+    },
+    {
+      "label": "C++ desktop role",
+      "shouldVeto": true,
+      "why": "C++ is almost never retrainable inside a hiring process, so three mentions is the job.",
+      "desc": "Software Engineer. Our desktop client is written in modern C++ and you will own it. Strong C++ is required, including templates and RAII, and you will work across a C/C++ codebase of around 400k lines. CMake experience helpful."
+    },
+    {
+      "label": "Angular front end",
+      "shouldVeto": true,
+      "why": "A posting whose front end is Angular is not reachable from a React CV, and the title often just says 'Full Stack'.",
+      "desc": "Full Stack Engineer. The front end is Angular 17 with NgRx for state and heavy use of RxJS throughout. You should be fluent in Angular and comfortable debugging RxJS streams. Backend is Node."
+    },
+    {
+      "label": "Go backend",
+      "shouldVeto": true,
+      "why": "Three mentions means the services are Go, whatever the title says.",
+      "desc": "Backend Engineer. Our services are written in Golang and deployed on Kubernetes. You will write idiomatic Golang, own service boundaries, and contribute to our shared Go lang libraries. Go experience in production is required."
+    },
+    {
+      "label": "Ruby on Rails product",
+      "shouldVeto": true,
+      "why": "Rails monoliths need Rails people.",
+      "desc": "Senior Engineer. The product is a Ruby on Rails monolith. You will write Ruby daily, extend our Rails models and controllers, and keep the RSpec suite green. Strong Ruby experience is essential."
+    },
+    {
+      "label": "PHP / Laravel agency work",
+      "shouldVeto": true,
+      "why": "Frequently titled 'Full Stack Developer' with no stack in the title at all.",
+      "desc": "Full Stack Developer. You will build client applications in PHP using Laravel, maintain some legacy Symfony services, and be comfortable across the PHP ecosystem. Laravel experience required."
+    },
+    {
+      "label": "VMware datacentre work titled Solutions Engineer",
+      "shouldVeto": true,
+      "why": "Widening a search into lead and consultant titles drags these in. In the Gulf, 'Technical Consultant' and 'Solutions Engineer' mean datacentre and network work far more often than software. Seven such postings reached the queue in two sweeps and every one was a skip.",
+      "desc": "Solutions Engineer. You will design and deploy VMware vSphere and NSX-T environments, work with vCenter at scale, implement micro-segmentation, and integrate with Cisco Nexus fabrics. VMware certification preferred. VCF experience is a strong plus."
+    },
+    {
+      "label": "Salesforce platform work titled Software Engineer",
+      "shouldVeto": true,
+      "why": "Apex is not transferable and the title rarely admits it.",
+      "desc": "Software Engineer, platform. You will build on Salesforce, writing Apex classes and triggers, developing Lightning Web Components, and configuring Sales Cloud and Service Cloud. Salesforce platform experience is essential."
+    },
+    {
+      "label": "AV systems work titled Technical Consultant",
+      "shouldVeto": true,
+      "why": "Audio-visual integration reads as 'technical' and is not software at all.",
+      "desc": "Technical Consultant. You will specify and commission audio-visual systems, including microphone arrays, loudspeaker coverage and Dante networks, program Crestron and Extron control systems, and certify Teams Rooms deployments. CTS certification required."
+    },
+    {
+      "label": "presales dressed as engineering",
+      "shouldVeto": true,
+      "why": "A pre-sales role with a quota is a sales job.",
+      "desc": "Solutions Engineer. You will support demand generation, run proof of concept trials with prospects, carry a shared quota against sales targets, and work with channel partners to upsell existing accounts. Pre-sales experience essential."
+    },
+
+    {
+      "label": "GOOD: native Android role that mentions Angular once",
+      "shouldVeto": false,
+      "why": "A single passing mention of another team's stack must never veto a real match. This is the case that stops the rule becoming useless.",
+      "desc": "Android Developer. You will build our consumer app in Kotlin with Jetpack Compose, using MVVM with Coroutines and Flow, consuming REST APIs over Retrofit. You will work alongside the web team, whose front end is Angular, but you will not be writing it."
+    },
+    {
+      "label": "GOOD: full-stack role that mentions .NET once as legacy",
+      "shouldVeto": false,
+      "why": "Legacy systems get named in adverts all the time. One mention is context, not the job.",
+      "desc": "Full Stack Engineer. Our stack is TypeScript end to end: React on the front end, Node with NestJS behind it, PostgreSQL underneath, deployed in Docker on AWS. One internal reporting tool is still .NET and will be retired this year."
+    },
+    {
+      "label": "GOOD: fintech mobile role naming Go in the platform team",
+      "shouldVeto": false,
+      "why": "Describing the wider architecture is normal. Two mentions of a stack you will not touch is not the job.",
+      "desc": "Mobile Engineer, payments. You own the Android client in Kotlin and Compose, with biometric authentication and encrypted local storage. Our platform services are written in Golang and expose gRPC, but mobile consumes them over a REST gateway and you will not write Go."
+    },
+    {
+      "label": "GOOD: backend role on the stack you actually have",
+      "shouldVeto": false,
+      "why": "The control case. Nothing here should trip anything.",
+      "desc": "Backend Engineer. You will design and build REST services in Python with FastAPI, backed by PostgreSQL, containerised with Docker and deployed on AWS. CI runs on GitHub Actions. Some of our newer services are in TypeScript with NestJS."
+    }
+  ]
+}

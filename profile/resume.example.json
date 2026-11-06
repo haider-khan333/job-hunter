@@ -1,0 +1,170 @@
+{
+  "_note": "SINGLE SOURCE OF TRUTH. Every tailored CV is generated from this file. Facts here must be TRUE, because tailoring means selecting, reordering and rephrasing what is here for a specific posting. It never means inventing. Copy this file to resume.json and replace every value. The example content below is fictional.",
+
+  "_howTailoringWorks": "Each bullet has a stable `id` and a list of `tags`. A per-application tailor.json then picks which bullets lead, which are dropped, and which skill groups appear first. That is why ids must never be renamed once an application references them, and why you should write MORE bullets here than fit on a page: the selection happens later.",
+
+  "basics": {
+    "name": "ALEX MORGAN",
+    "_nameNote": "Goes on the CV header and sets the PDF filename, so 'Alex Morgan' produces Alex-Morgan-Android-Developer.pdf.",
+    "headline": "Android Developer | Kotlin · Jetpack Compose · REST APIs",
+    "_headlineNote": "One line under the name. Keep it the SAME across your CV, your LinkedIn headline and your portfolio. Three different titles across three surfaces is the single easiest thing for a recruiter to notice and distrust. A per-application tailor.json can override it to mirror the posting's own job title.",
+    "location": "Lisbon, Portugal",
+    "availability": "EU citizen · Immediately available",
+    "_availabilityNote": "The work-authorisation line. This is the field recruiters scan for first and it is worth being exact. If your advantage is local (already resident, no permit needed), say so, but see `location._nonLocalRelocationRule` in profile.json: an advantage that only applies in one country must never appear on an application to another.",
+    "phone": "+00 000 000 000",
+    "phoneAlt": "",
+    "email": "alex.morgan@example.com",
+    "linkedin": "linkedin.com/in/your-handle",
+    "github": "",
+    "_githubNote": "Leave empty unless the account actually holds work you want a stranger to read. An empty or abandoned profile is worse than no link. A live product URL is stronger evidence than a repository.",
+    "website": "",
+    "portfolio": ""
+  },
+
+  "summaryVariants": {
+    "_note": "Pre-written professional summaries, one per positioning. A tailor.json picks one by name with `summaryVariant`, or replaces it outright with `summaryOverride`. Write the variants you actually need; `default` is required.",
+    "default": "Android developer with 4+ years building production applications, and a BS in Computer Science. Modern Kotlin and Jetpack Compose throughout, with MVVM and Clean Architecture keeping UI state separated from business logic using Coroutines and Flow. Comfortable on the networking side: REST APIs with Retrofit and OkHttp, and offline-first synchronisation with Room and WorkManager. Shipped and maintained apps used by 2,000+ field users.",
+    "mobile": "Mobile developer with 4+ years across native Android in Kotlin and cross-platform work in Flutter, and a BS in Computer Science. Enterprise applications in both native and hybrid, including structured data-entry forms, media upload and API authentication.",
+    "fintech": "Android developer with 4+ years, three of them inside regulated financial products, and a BS in Computer Science. Secure mobile transactions, biometric authentication and encrypted local storage against OWASP Mobile guidance.",
+    "fullstack": "Software engineer with 4+ years building both the REST services and the clients that consume them. TypeScript and React on the front end, Python with FastAPI on the back, containerised with Docker and deployed on AWS."
+  },
+
+  "skills": [
+    {
+      "id": "mobile",
+      "label": "Mobile Development",
+      "items": ["Kotlin", "Java", "Jetpack Compose", "Android SDK", "Flutter", "Dart"]
+    },
+    {
+      "id": "arch",
+      "label": "Architecture",
+      "items": ["MVVM", "Clean Architecture", "Hilt/Dagger", "Dependency Injection"]
+    },
+    {
+      "id": "api",
+      "label": "Networking & APIs",
+      "items": ["REST APIs", "Retrofit", "OkHttp", "API Authentication"]
+    },
+    {
+      "id": "storage",
+      "label": "Storage & Offline",
+      "items": ["Room (SQLite)", "WorkManager", "Offline-first sync"]
+    },
+    {
+      "id": "delivery",
+      "label": "Tooling & Delivery",
+      "items": ["Git", "Gradle", "GitHub Actions", "Firebase (FCM, Crashlytics)", "Google Play", "Agile/Scrum"]
+    },
+    {
+      "id": "_note",
+      "label": "HOW TO USE THIS LIST",
+      "items": [
+        "One group per heading on the CV. `skillOrder` in a tailor.json reorders the groups so the posting's priorities are read first.",
+        "`skillItemOrder` reorders items WITHIN a group, so a posting that says Kotlin first gets Kotlin first.",
+        "Every item here must also be honestly graded in config/skills.config.mjs. Listing a skill you cannot be interviewed on is the fastest way to waste an interview.",
+        "DELETE THIS GROUP before your first build."
+      ]
+    }
+  ],
+
+  "experience": [
+    {
+      "id": "acme",
+      "title": "Android Developer",
+      "company": "Acme Field Systems",
+      "locationNote": "Lisbon, hybrid",
+      "start": "Jan 2024",
+      "end": "Present",
+      "bullets": [
+        {
+          "id": "acme-field",
+          "tags": ["android", "kotlin", "compose", "mvvm", "clean", "hilt", "maps", "enterprise"],
+          "text": "Designed and built an Android application (Kotlin, Jetpack Compose, MVVM, Clean Architecture, Hilt) for field-service operations, supporting 2,000+ field users with real-time job tracking and map-based navigation."
+        },
+        {
+          "id": "acme-offline",
+          "tags": ["android", "offline", "room", "workmanager", "sync"],
+          "text": "Built an offline-first sync system (Room and WorkManager) that kept the app fully usable with no connectivity, syncing automatically on reconnection."
+        },
+        {
+          "id": "acme-api",
+          "tags": ["backend", "api", "rest", "python"],
+          "text": "Designed and built the REST services behind the mobile client, covering endpoint contracts, authentication and media upload."
+        },
+        {
+          "id": "acme-release",
+          "tags": ["delivery", "cicd", "release"],
+          "text": "Owned releases end to end through GitHub Actions and the Play Console, including staged rollouts and crash triage in Crashlytics."
+        }
+      ]
+    },
+    {
+      "id": "firstco",
+      "title": "Junior Android Developer (promoted from intern)",
+      "company": "FirstCo Digital",
+      "locationNote": "Remote",
+      "start": "Mar 2022",
+      "end": "Dec 2023",
+      "bullets": [
+        {
+          "id": "firstco-refactor",
+          "tags": ["android", "mvvm", "clean", "architecture", "testing"],
+          "text": "Refactored a legacy Android codebase into MVVM and Clean Architecture, separating UI from business logic so the critical payment flows could be tested."
+        },
+        {
+          "id": "firstco-secdata",
+          "tags": ["security", "fintech", "encryption"],
+          "text": "Implemented secure handling of financial data: encrypted local storage, secure token management and certificate pinning."
+        },
+        {
+          "id": "firstco-agile",
+          "tags": ["agile", "scrum", "collaboration", "quality"],
+          "text": "Worked with product owners and QA across sprint planning, estimation, code review and regression testing."
+        }
+      ]
+    }
+  ],
+
+  "_bulletWritingNote": "Lead with the verb, name the technology the posting will search for, and END ON A NUMBER wherever one is true. '2,000+ field users' and 'cut data-entry errors by ~90%' do the persuading; 'responsible for the mobile team' does not. Never write a bullet you would not want read back to you in an interview.",
+
+  "projects": [
+    {
+      "id": "sideproject",
+      "name": "Example Side Project",
+      "role": "Builder",
+      "url": "example.com",
+      "context": "Own project. Say so plainly: a personal project presented as employer work is the kind of thing that unravels in a reference check.",
+      "public": true,
+      "start": "",
+      "end": "Present",
+      "bullets": [
+        {
+          "id": "sideproject-build",
+          "tags": ["frontend", "backend", "api"],
+          "text": "Built and operates a live product on Next.js with a custom backend, carrying real users."
+        }
+      ]
+    }
+  ],
+
+  "education": [
+    {
+      "degree": "B.S. in Computer Science",
+      "institution": "University Name",
+      "start": "Sep 2018",
+      "end": "Jun 2022",
+      "bullets": [
+        {
+          "id": "edu-final",
+          "tags": ["ai", "ml", "mobile"],
+          "text": "**Final Project:** one line on what it did and what it was built with."
+        }
+      ]
+    }
+  ],
+
+  "certifications": [],
+  "languages": [
+    { "language": "English", "level": "Fluent" }
+  ]
+}

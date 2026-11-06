@@ -1,0 +1,41 @@
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+
+# ---------------------------------------------------------------------------
+# PERSONAL DATA. Read docs/06-privacy.md before touching this block.
+#
+# These five paths fill up with your phone number, your salary decisions, your
+# visa status, your CV in full, and the names and email addresses of recruiters
+# who never consented to being published.
+#
+# KEEPING THEM IGNORED (the default) means a public fork stays clean, and your
+# tracker history is not in git. Keep a private backup of tracker.json; losing
+# it loses the memory of your search.
+#
+# DELETING THESE LINES means your decision history is versioned, which is
+# genuinely valuable. Then the repository must stay PRIVATE, permanently.
+# A repo that was private and becomes public still carries every commit.
+# ---------------------------------------------------------------------------
+profile/profile.json
+profile/resume.json
+profile/companies.json
+tracker.json
+applications/*
+!applications/example-android-role/
+applications/example-android-role/*
+!applications/example-android-role/tailor.json
+!applications/_watch/
+applications/_watch/*
+!applications/_watch/README.md
+
+# Secrets. Never commit. The WhatsApp key lives here and nowhere else.
+.env
+.env.*
+!.env.example
+secrets.json
+
+# Browser and MCP scratch output, never part of the project
+.playwright-mcp/
+.shots/

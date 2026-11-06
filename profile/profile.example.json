@@ -1,0 +1,139 @@
+{
+  "_note": "FORM-FILL ANSWERS AND STANDING RULES. resume.json holds your work history; this file holds everything an application FORM asks for and every decision you have already made, so the agent never has to guess and never has to ask twice. Copy to profile.json and fill it in. The example values are fictional.",
+
+  "_theCONFIRMconvention": "Any value that starts with the word CONFIRM is an instruction to the agent: do not guess this, surface it to me. Salary, visa status and date of birth are the three that cause real damage when invented, because a number you did not choose is very hard to walk back once it is in writing. Leave CONFIRM in place until you have actually decided.",
+
+  "_whyThisFileGetsLong": "Every time you answer a question the agent could not have known, the answer belongs here with the date you gave it and the reason. That is what stops the same question being asked in week three. In the original run this file reached 38 KB and most of it was decisions, not facts.",
+
+  "identity": {
+    "fullName": "Alex Morgan",
+    "firstName": "Alex",
+    "lastName": "Morgan",
+    "email": "alex.morgan@example.com",
+    "phone": "+00 000 000 000",
+    "_phoneNote": "Full international format, including the country code. Some portals reject a local-format number and some reject spaces, so keep a no-spaces copy in mind.",
+    "phoneAlt": "",
+    "whatsapp": "+00 000 000 000",
+    "linkedin": "https://linkedin.com/in/your-handle",
+    "github": "",
+    "portfolio": ""
+  },
+
+  "location": {
+    "currentCity": "Lisbon",
+    "currentCountry": "Portugal",
+    "targetCities": ["Lisbon", "Berlin", "Amsterdam"],
+    "targetCountries": ["Portugal", "Germany", "Netherlands"],
+    "targetRegions": ["EU", "Remote (Europe)"],
+    "willingToRelocate": "Within the EU, yes. State the real answer, including what you will not do.",
+    "relocationNotice": "Already resident, no permit required",
+
+    "_nonLocalRelocationRule": "CRITICAL FOR TAILORING, AND THE MOST EXPENSIVE MISTAKE THIS SYSTEM CAN MAKE. If your advantage is 'already resident, no visa needed', that advantage exists in ONE country. Writing it into an application to a different country is not just useless, it reads as a candidate who did not notice where the job is. Name the country here and the agent will keep the line out of every application outside it."
+  },
+
+  "workAuthorization": {
+    "citizenship": "Portuguese",
+    "visaType": "N/A - citizen",
+    "visaExpiry": "",
+    "passportExpiry": "CONFIRM - exact day, month and year. Some portals demand DD-MMM-YYYY and will not accept a month alone.",
+    "needsSponsorship": "No for the EU. Yes for the UK and the US.",
+    "_sponsorshipNote": "Be exact per market. 'Sometimes' is not an answer a form can take, and a wrong answer here wastes an entire pipeline.",
+    "noticePeriod": "Immediate",
+    "canJoinBy": "Immediate",
+    "nationalId": "HAVE - do not store the number in this repo",
+    "_idNote": "NEVER put a passport number, national ID number or date of birth into a file that could reach a public repository. Record that you have the document and nothing more. If a form demands the number, the agent surfaces the form and you type it."
+  },
+
+  "compensation": {
+    "_note": "THE AGENT MUST NEVER INVENT A NUMBER HERE. A salary figure is the one field on an application that cannot be renegotiated upward once submitted.",
+    "currentSalary": "CONFIRM",
+    "currentSalaryOnForms": "CONFIRM - what you are willing to DISCLOSE when a form demands a current figure, which is not always the same as what you earn.",
+    "expectedSalaryMonthly": "CONFIRM - with currency",
+    "expectedSalaryAnnual": "CONFIRM - with currency",
+    "_singleNumberRule": "Many forms reject a range and demand one integer. Decide now which end of your range you enter, so the agent is not guessing at submit time. The original profile entered the TOP of the band.",
+    "_perMarketRule": "If you search more than one country, record a figure per currency, and note which is which. A figure set for a global remote role must not be carried into a local one, or the other way round.",
+    "_visaFloorRule": "In markets where a work visa carries a minimum salary (the German Blue Card, for instance), any figure you name must clear that floor or the sponsorship cannot happen at all. Check the floor before naming a number.",
+    "salaryNegotiable": true,
+    "preferredCurrency": "EUR",
+    "salaryNote": "Where a form allows free text, prefer 'negotiable on the total package' over a bare number.",
+    "_benchmark": "CONFIRM - what the market actually pays for your years in your city. Fill this in from real adverts, not feeling. It is what stops you asking under the market by accident."
+  },
+
+  "experience": {
+    "totalYears": "4+",
+    "totalYearsPrecise": "4 years 7 months",
+    "_precisionNote": "Keep this current. It is the number config/search.config.mjs filters on, and it drifts every month.",
+    "currentTitle": "Android Developer",
+    "currentEmployer": "Acme Field Systems",
+    "highestDegree": "B.S. in Computer Science",
+    "university": "University Name",
+    "graduationYear": "2022",
+
+    "_depthFields": "The fields below exist because 'do you know X' is not a yes or no question, and the answer decides what may be written on a CV. Add one per skill where the honest answer is partial. Three grades: PROFESSIONAL, REAL BUT JUNIOR, NOT CLAIMED.",
+    "backendDepth": "PROFESSIONAL - designed and built the REST services behind my own apps, roughly half of day-to-day work.",
+    "frontendDepth": "REAL BUT JUNIOR - shipped React and Next.js in production, would not claim senior front-end.",
+    "dataDepth": "NOT CLAIMED - uses PostgreSQL daily as a consumer, has NOT owned schema design, migrations, constraint design or query tuning. SQL may be listed as a skill; database design may never be claimed.",
+    "_dataDepthNote": "This is the single most commonly blurred line on an engineering CV and it is worth being strict about, because 'data modelling' is a named deliverable in a lot of postings and the interview finds out in ten minutes."
+  },
+
+  "demographics": {
+    "_note": "Only what forms actually demand. Nothing here is required to search for jobs.",
+    "nationality": "Portuguese",
+    "dateOfBirth": "CONFIRM - needed by some portals. Consider keeping it out of the repo and typing it yourself.",
+    "gender": "",
+    "maritalStatus": "",
+    "languages": ["English - fluent", "Portuguese - native"],
+    "hasDrivingLicense": "CONFIRM - and say which country issued it. Some field and sales-adjacent roles require a local licence."
+  },
+
+  "screeningAnswers": {
+    "_note": "Pre-written answers to the questions that come up on every third form. The agent reuses these verbatim rather than improvising, so your story stays consistent across fifty applications.",
+    "whyThisCompany": "GENERATED PER JOB from the posting and the company's own site. Never templated, because a generic answer here is obvious and is the cheapest thing to get right.",
+    "whyLeaving": "One honest sentence. No criticism of the current employer.",
+    "greatestStrength": "One concrete thing you have shipped, with its number.",
+    "willingToWorkOnsite": true,
+    "willingToWorkHybrid": true,
+    "openToContract": "CONFIRM - and see employmentType below.",
+    "noticePeriod": "Immediate - I can start right away.",
+    "referredBy": ""
+  },
+
+  "employmentType": {
+    "_rule": "CONFIRM. Decide once whether a freelance, contract or sub-six-month posting is worth applying to, and under what conditions. The original rule was: worth it ONLY IF the posting states either that the role is remote OR that extension is possible. Without a rule the agent either skips good contract work or floods you with three-month onsite gigs."
+  },
+
+  "preferences": {
+    "targetRoles": [
+      "Android Developer",
+      "Mobile Developer",
+      "Software Engineer",
+      "Full Stack Developer"
+    ],
+    "preferredIndustries": ["Fintech", "Logistics", "Product companies"],
+    "excludeKeywords": ["commission only", "unpaid", "equity only"],
+    "minMatchScoreToStage": 60,
+    "maxApplicationsPerDay": 15,
+    "_volumeNote": "A cap is not timidity. 75 applications in five weeks produced one screening call in the original run, and the measured conclusion was that volume was never the bottleneck. See docs/05-handoff.md.",
+    "excludeLocations": [],
+    "excludeLocationsReason": "Say WHY, with the date. A location you excluded in month one for a reason you have forgotten is a location you will argue about in month three.",
+    "messagingStyle": "LinkedIn messages under about 700 characters. No em dashes. Plain sentences. A message that reads as generated gets ignored."
+  },
+
+  "publicWork": {
+    "_rule": "What a stranger can actually look at. Be precise, because this is the one claim on a CV that gets clicked.",
+    "hasPublicPortfolio": false,
+    "publicWorkUrl": "",
+    "publicWorkNote": "If a site is not live, it does not exist and must never be cited. Verify it returns 200 before it goes on a CV.",
+    "hasPublishableGithub": false,
+    "appStoreReleases": 0,
+    "_appStoreNote": "Count only apps a stranger can download under your name. Enterprise and internal distribution do not count, and postings that ask for 'a live app in the store' mean the store."
+  },
+
+  "strategy": {
+    "_note": "Write this section AFTER your first outcome review, not before. It is where measured conclusions live, and it is the part that stops the search repeating a mistake for a month. Review every 30 to 40 applications.",
+    "_theEvidenceTemplate": "Count: applications sent, replies, screens, interviews, offers, and the reply rate by CHANNEL (portal, direct email, recruiter, referral). Until you have those five numbers you are guessing about your own search.",
+    "titleGrade": "CONFIRM after review. The original finding: 24 of 75 applications carried a Senior title against 4y7m of experience and returned zero interviews, so the target moved to mid-level. Grade mismatch is invisible in a score and fatal in a shortlist.",
+    "channel": "CONFIRM after review. The original finding: 41 of 52 portal applications in one market produced total silence, while direct email to a named human produced the only replies. If that holds for you, the portal is not where your hours should go.",
+    "_whatThisMeansForTheWatcher": "If your conclusion is that the bottleneck is channel or grade rather than volume, then tuning the watcher will not fix it. Fix the thing you measured."
+  }
+}
