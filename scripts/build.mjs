@@ -10,9 +10,9 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { requireSetup } from './lib/setup-check.mjs';
+import { htmlToPdf, noBrowserMessage } from './lib/browser.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 requireSetup(ROOT, ["profile/resume.json"]);
@@ -180,13 +180,6 @@ const htmlPath = path.join(appDir, 'resume.html');
 fs.writeFileSync(htmlPath, html, 'utf8');
 
 // ---- render to PDF ---------------------------------------------------------
-const BROWSERS = [
-  'C:/Program Files/Google/Chrome/Application/chrome.exe',
-  'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe',
-  'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',
-  'C:/Program Files/Microsoft/Edge/Application/msedge.exe',
-];
-const browser = BROWSERS.find(p => fs.existsSync(p));
 const safeRole = role.replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-|-$/g, '');
 const safeName = String(resume.basics.name || 'Resume')
   .trim().split(/\s+/)
@@ -194,15 +187,16 @@ const safeName = String(resume.basics.name || 'Resume')
   .join('-').replace(/[^A-Za-z0-9-]/g, '');
 const pdfPath = path.join(appDir, `${safeName}-${safeRole}.pdf`);
 
-if (!browser) {
-  console.log(`HTML written: ${htmlPath}\nNo Chrome/Edge found — open the HTML and print to PDF manually.`);
+// Browser discovery lives in lib/browser.mjs and covers Windows, macOS and
+// Linux, with CHROME_PATH as an override. If nothing is found the HTML is
+// still written, so the CV is never lost to a missing browser.
+if (!htmlToPdf(htmlPath, pdfPath)) {
+  console.log(`  HTML  ${htmlPath}`);
+  console.log('');
+  console.log('  ' + noBrowserMessage().split('\n').join('\n  '));
+  console.log('  The HTML above is complete; you can also just print it to PDF yourself.');
   process.exit(0);
 }
-
-execFileSync(browser, [
-  '--headless', '--disable-gpu', '--no-sandbox', '--no-pdf-header-footer',
-  `--print-to-pdf=${pdfPath}`, `file:///${htmlPath.replace(/\\/g, '/')}`,
-], { stdio: 'pipe', timeout: 60000 });
 
 const kb = (fs.statSync(pdfPath).size / 1024).toFixed(1);
 console.log(`  PDF   ${pdfPath}  (${kb} KB)`);

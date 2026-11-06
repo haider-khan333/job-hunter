@@ -14,6 +14,14 @@ legacy and are kept because they still work, not because you need them.
 | **`watch-install.ps1`** | Installs, reschedules or removes the `JobWatcher` Windows Scheduled Task. Windows only; use cron elsewhere. |
 | **`notify.ps1`** | The Windows toast the sweep fires when something clears the bar. |
 
+## lib/
+
+| Module | What it does |
+|---|---|
+| **`lib/keywords.mjs`** | The skill taxonomy: each canonical skill and the surface forms a posting might use for it. Generic; you should rarely edit it. Re-exports your grading from `config/skills.config.mjs`. |
+| **`lib/browser.mjs`** | Finds a headless-capable Chrome, Chromium or Edge on Windows, macOS or Linux, honouring `CHROME_PATH` first and falling back to PATH. This is why the repo has no npm dependencies: the PDF pipeline shells out to a browser you already have rather than pulling in Puppeteer. |
+| **`lib/setup-check.mjs`** | The preflight. A fresh clone has no `profile/resume.json`, because those files are gitignored on purpose, and without this the first command anyone runs dies on a raw `ENOENT` that explains nothing. |
+
 ## Tests
 
 Run both after editing any filter. They exist because each one caught a real

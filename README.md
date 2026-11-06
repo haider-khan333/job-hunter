@@ -41,10 +41,29 @@ code.
 
 ---
 
+## Requirements
+
+- **[Claude Code](https://claude.com/claude-code)** — the agent half runs in it.
+- **Node 18 or newer.** `node --version` to check. 18 is the floor because the
+  sweep uses the built-in `fetch`.
+- **Chrome, Chromium or Edge**, for rendering CVs to PDF. Found automatically
+  on Windows, macOS and Linux; set `CHROME_PATH` if yours lives somewhere
+  unusual. Without one you still get the HTML and can print it yourself.
+- **No `npm install`.** There are zero dependencies, on purpose. Nothing here
+  can break because a package shifted under it.
+
+**Platform:** the engine is plain Node and runs anywhere. Two pieces are
+Windows-only and both have a stated alternative: the hourly task wrapper
+(`watch-install.ps1`, use cron instead, see
+[docs/03-watcher.md](docs/03-watcher.md)) and the toast notification
+(`notify.ps1`, which you can simply not use). `start-chrome-for-claude.bat` is
+Windows; on macOS or Linux, launch Chrome with
+`--remote-debugging-port=9222 --user-data-dir=<a dedicated folder>` yourself.
+
 ## Setup
 
-You need [Claude Code](https://claude.com/claude-code), Node 18+, and about
-forty minutes of honest thinking about your own CV.
+Allow about forty minutes, most of it honest thinking about your own CV rather
+than typing.
 
 ```bash
 git clone <your-fork-url> job-hunter
